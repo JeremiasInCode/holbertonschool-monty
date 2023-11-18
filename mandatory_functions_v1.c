@@ -43,3 +43,22 @@ void _push(stack_t **stack, unsigned int line_number)
 	}
 	(*stack) = newNode;
 }
+
+/**
+* _pall - The opcode pall prints all the values on the
+* stack, starting from the top of the stack.
+*
+* @stack: stack where work will be done.
+* @line_number: number of lines.
+*/
+
+void _pall(stack_t **stack, unsigned int __attribute__((unused)) line_number)
+{
+	stack_t *tmp = *stack;
+
+	while (tmp->next != NULL)
+	{
+		printf("%d\n", tmp->n);
+		tmp = tmp->next;
+	}
+}
