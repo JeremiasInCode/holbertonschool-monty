@@ -42,3 +42,26 @@ void _swap(stack_t **stack, unsigned int line)
 	(*stack)->n = tmp->n;
 	tmp->n = tmp_n;
 }
+
+/**
+* _add - The opcode add adds the top two elements of the stack.
+*
+* @stack: stack where work will be done.
+* @line: number of lines.
+*/
+
+void _add(stack_t **stack, unsigned int line)
+{
+	stack_t *check = (*stack)->next;
+
+	if (check->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line);
+		exit(EXIT_FAILURE);
+	}
+	int tmp = (*stack)->n;
+	*stack = (*stack)->next;
+	(*stack)->n += tmp;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
+}
