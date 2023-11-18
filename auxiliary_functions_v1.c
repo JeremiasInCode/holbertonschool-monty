@@ -34,3 +34,21 @@ void (*get_fu(char *current_opcode))(stack_t **stack, unsigned int line_number)
 	}
 	return (NULL);
 }
+
+/**
+* free_list - Free memory of doubly linked list.
+*
+* @stack_to_free: stack to free.
+*/
+
+void free_list(stack_t *stack_to_free)
+{
+	stack_t *temp;
+
+	while (stack_to_free != NULL)
+	{
+		temp = stack_to_free->next;
+		free(stack_to_free);
+		stack_to_free = temp;
+	}
+}
