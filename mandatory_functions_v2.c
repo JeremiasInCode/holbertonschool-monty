@@ -72,6 +72,7 @@ void _add(stack_t **stack, unsigned int line)
 * @stack: stack where work will be done.
 * @line_number: number of lines.
 */
+
 void _nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
