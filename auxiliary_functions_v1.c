@@ -52,3 +52,30 @@ void free_list(stack_t *stack_to_free)
 		stack_to_free = temp;
 	}
 }
+
+int
+is_number(char *number)
+{
+	/**
+	* ! 1 - Valid.
+	* ! 0 - Invalid.
+	*/
+
+	int index = 0;
+
+	if ((number[index] < '0' || number[index] > '9') && number[index] != '-')
+	{
+		return (0);
+	}
+
+	index += 1;
+
+	for (; number[index] != '\0'; index++)
+	{
+		if ((number[index] < '0' || number[index] > '9'))
+		{
+			return (0);
+		}
+	}
+	return (1);
+}
